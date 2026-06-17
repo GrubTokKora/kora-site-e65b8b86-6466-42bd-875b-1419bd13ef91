@@ -1,3 +1,38 @@
+/* Source for assets/styles.css — compile externally */
 @import "tailwindcss";
 @source "../**/*.html";
-@source "../assets/**/*.js";
+@source "../js/**/*.js";
+
+@theme {
+  --color-ink-900: #141210;
+  --color-ink-800: #1f1b16;
+  --color-ink-700: #2c271f;
+  --color-ink-600: #423a2e;
+  --color-ink-500: #5c5142;
+  --color-ink-400: #837868;
+  --color-ink-300: #ada391;
+  --color-ink-200: #d2c9b8;
+
+  --color-cream-50: #fbf6ec;
+  --color-cream-100: #f5eddc;
+  --color-cream-200: #ece0c8;
+  --color-cream-300: #decca9;
+
+  --color-turmeric-700: #9a6e0f;
+  --color-turmeric-600: #c28a14;
+  --color-turmeric-500: #e6b31e;
+  --color-turmeric-400: #f0c645;
+  --color-turmeric-300: #f7dc85;
+
+  --color-chili-700: #8a2018;
+  --color-chili-600: #a82a20;
+  --color-chili-500: #c5352a;
+  --color-chili-400: #d9594e;
+
+  --color-leaf-700: #3a521f;
+  --color-leaf-600: #4f6f2e;
+
+  --font-display: Oswald, "Arial Narrow", sans-serif;
+  --font-accent: "Zilla Slab", Georgia, serif;
+  --font-body: "DM Sans", system-ui, sans-serif;
+}
