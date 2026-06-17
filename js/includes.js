@@ -94,12 +94,6 @@ const FOOTER_HTML = `
     <span>© ${new Date().getFullYear()} NH 44 Indian</span>
     <span>Kashmir → Kanyakumari</span>
   </div>
-  <!-- KORA_BRANDING_FOOTER_START -->
-  <div class="kora-powered-by" style="display:flex;justify-content:flex-end;align-items:center;gap:6px;padding:10px 24px 14px;font-size:12px;line-height:1.4">
-    <span style="color:#837868">Powered by</span>
-    <a href="https://askkora.ai" target="_blank" rel="noopener noreferrer" style="font-weight:600;background:linear-gradient(90deg,#6366f1,#8b5cf6);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;text-decoration:none">Kora</a>
-  </div>
-  <!-- KORA_BRANDING_FOOTER_END -->
 </footer>
 `;
 
