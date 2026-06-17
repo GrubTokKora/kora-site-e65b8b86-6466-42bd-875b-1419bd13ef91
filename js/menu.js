@@ -189,7 +189,7 @@
 
     gridEl.innerHTML = picks.map(function (d, i) {
       return (
-        '<div class="card card-paper card-interactive">' +
+        '<div class="signature-item">' +
           '<div class="signature-label">' + labels[i] + '</div>' +
           '<div class="signature-spacer"></div>' +
           renderMenuItem(d) +

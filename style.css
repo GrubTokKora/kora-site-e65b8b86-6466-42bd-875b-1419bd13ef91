@@ -778,6 +778,19 @@ a {
   margin-top: 36px;
 }
 
+.signature-item {
+  background: var(--surface-card);
+  padding: var(--space-5);
+  border-radius: var(--radius-sm);
+  border: 1px solid var(--border-soft);
+  transition: transform var(--dur-med) var(--ease-out), box-shadow var(--dur-med) var(--ease-out);
+}
+
+.signature-item:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-soft);
+}
+
 .grid-story {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
@@ -852,6 +865,10 @@ a {
 .menu-card {
   margin-top: 28px;
   padding: clamp(20px, 3vw, 38px);
+}
+
+.menu-list-container {
+  margin-top: 28px;
 }
 
 .menu-divider {
