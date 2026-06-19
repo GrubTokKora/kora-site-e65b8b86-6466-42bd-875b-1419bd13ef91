@@ -499,7 +499,6 @@ a {
 .menu-item__leader {
   flex: 1;
   align-self: flex-end;
-  border-bottom: 1.5px dotted var(--ink-300);
   transform: translateY(-4px);
 }
 
