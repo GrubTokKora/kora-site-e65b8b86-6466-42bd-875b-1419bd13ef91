@@ -893,6 +893,10 @@ a {
   background: var(--ink-900) url('https://quseprdus1.blob.core.windows.net/kora-business-images/user-media/e65b8b86-6466-42bd-875b-1419bd13ef91/de8c94d8-887e-4625-825f-ec262dbc28df/1781686802_t8x7hq.jpg') center / cover no-repeat;
 }
 
+.hiring-section {
+  background-image: url('https://quseprdus1.blob.core.windows.net/kora-business-images/user-media/e65b8b86-6466-42bd-875b-1419bd13ef91/de8c94d8-887e-4625-825f-ec262dbc28df/1781686763_ngejlj.jpg');
+}
+
 .reserve-section::before {
   content: "";
   position: absolute;
