@@ -61,7 +61,7 @@
       { name: 'Channa Masala', price: '$17', description: 'Chickpea, onion, tomato, aromatic spices', badges: [{ label: 'Veg', tone: 'veg' }, { label: 'GF', tone: 'neutral' }] },
     ],
     'Vegetable': [
-      { name: 'Saag Peshkesh', price: '$16', description: 'Pureed fresh spinach, cream, garlic', badges: [{ label: 'Veg', tone: 'veg' }, { label: 'GF', tone: 'neutral' }] },
+      { name: 'Saag Peshkesh', price: '$16', description: 'Pureed fresh spinach, cream, garlic. Add: Paneer +$4 · Vegetable +$3 · Potato +$2', badges: [{ label: 'Veg', tone: 'veg' }, { label: 'GF', tone: 'neutral' }] },
       { name: 'Paneer Tawa Masala', price: '$20', description: 'Pan fried cottage cheese, onion, pepper, cumin', badges: [{ label: 'Veg', tone: 'veg' }, { label: 'GF', tone: 'neutral' }] },
       { name: 'Dal Makhani', price: '$18', description: 'Simmered black lentils in cream, tempered sun-dried chili', badges: [{ label: 'Veg', tone: 'veg' }, { label: 'GF', tone: 'neutral' }] },
       { name: 'Vegetable Korma', price: '$20', description: 'Market vegetable, cashe cream, aromatic spices', badges: [{ label: 'Veg', tone: 'veg' }, { label: 'GF', tone: 'neutral' }] },
