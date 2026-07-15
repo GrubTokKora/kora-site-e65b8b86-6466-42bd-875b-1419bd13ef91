@@ -1,6 +1,6 @@
 (function () {
   var THALI_INCLUDES =
-    'Appetizer, rice, naan/roti, dal of the day, saag paneer, vegetable sabji, raita, pickle & pappad';
+    'Appetizer, rice, naan/roti, dal of the day, saag paneer, vegetable sabji, raita, pickle & pappad, dessert';
 
   var MENU = {
     'Xpress Thali': [
