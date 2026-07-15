@@ -99,8 +99,8 @@
       { name: 'Salmon Curry', price: '$28', description: 'Ginger infused coconut', badges: [{ label: 'Non-veg', tone: 'nonveg' }, { label: 'GF', tone: 'neutral' }] },
     ],
     'Gilli Biryani': [
-      { name: 'Chicken', price: '$24', description: 'Aromatic aged basmati rice, whole spices, ghee, caramelized onion, raita, mint, cashew & raisin', badges: [{ label: 'Non-veg', tone: 'nonveg' }] },
-      { name: 'Lamb', price: '$26', description: 'Aromatic aged basmati rice, whole spices, ghee, caramelized onion, raita, mint, cashew & raisin', badges: [{ label: 'Non-veg', tone: 'nonveg' }] },
+      { name: 'Chicken', price: '$22', description: 'Aromatic aged basmati rice, whole spices, ghee, caramelized onion, raita, mint, cashew & raisin', badges: [{ label: 'Non-veg', tone: 'nonveg' }] },
+      { name: 'Lamb', price: '$24', description: 'Aromatic aged basmati rice, whole spices, ghee, caramelized onion, raita, mint, cashew & raisin', badges: [{ label: 'Non-veg', tone: 'nonveg' }] },
       { name: 'Shrimp', price: '$26', description: 'Aromatic aged basmati rice, whole spices, ghee, caramelized onion, raita, mint, cashew & raisin', badges: [{ label: 'Non-veg', tone: 'nonveg' }] },
     ],
     'Breads': [
