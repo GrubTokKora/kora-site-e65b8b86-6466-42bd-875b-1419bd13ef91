@@ -150,7 +150,7 @@
       { name: 'Fresh Lime Soda', price: '$7', description: '' },
       { name: 'Cucumber Cooler', price: '$7', description: 'cucumber, mint' },
       { name: 'Mango Lassi', price: '$7', description: 'Creamy blended mango, yogurt' },
-      { name: 'Fresh Lime', price: '$5', description: 'Freshly squeezed lime' },
+      { name: 'Fresh Lime Soda', price: '$5', description: 'Freshly squeezed lime' },
     ],
   };
 
