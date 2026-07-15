@@ -791,6 +791,83 @@ a {
   color: var(--ink-900);
 }
 
+.section__meta {
+  margin: 10px 0 0;
+  font-family: var(--font-body);
+  font-size: 0.9375rem;
+  font-weight: 500;
+  letter-spacing: 0.04em;
+  color: var(--text-muted);
+}
+
+.special-lede {
+  margin: 28px 0 0;
+  max-width: 54ch;
+  font-family: var(--font-accent);
+  font-size: 1.0625rem;
+  line-height: 1.55;
+  color: var(--ink-800, var(--ink-900));
+}
+
+.special-terms {
+  list-style: none;
+  margin: 36px 0 0;
+  padding: 24px 0 0;
+  border-top: 1px solid var(--border-soft);
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px 0;
+}
+
+.special-terms__item {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  flex: 1 1 200px;
+  min-width: 0;
+  padding: 0 28px;
+  border-left: 1px solid var(--border-soft);
+}
+
+.special-terms__item:first-child {
+  padding-left: 0;
+  border-left: none;
+}
+
+.special-terms__label {
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: 0.75rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--chili-600);
+}
+
+.special-terms__detail {
+  font-family: var(--font-body);
+  font-size: 0.9375rem;
+  line-height: 1.45;
+  color: var(--ink-900);
+}
+
+@media (max-width: 720px) {
+  .special-terms {
+    flex-direction: column;
+    gap: 18px;
+  }
+
+  .special-terms__item {
+    flex: none;
+    padding: 0 0 0 16px;
+    border-left: 2px solid var(--chili-500);
+  }
+
+  .special-terms__item:first-child {
+    padding-left: 16px;
+    border-left: 2px solid var(--chili-500);
+  }
+}
+
 .page-title {
   margin: 12px 0 0;
   font-family: var(--font-display);
@@ -917,6 +994,47 @@ a {
 
 .menu-list-container {
   margin-top: 28px;
+}
+
+.menu-category-intro {
+  margin: 0 0 28px;
+  padding: 20px 22px;
+  background: var(--surface-card, #fff);
+  border: 1px solid var(--border-soft);
+  border-radius: var(--radius-sm);
+}
+
+.menu-category-intro__meta {
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: 0.75rem;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--chili-600);
+}
+
+.menu-category-intro__choice,
+.menu-category-intro__includes {
+  margin: 16px 0 0;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.menu-category-intro__label {
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: 0.6875rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+}
+
+.menu-category-intro__options {
+  font-family: var(--font-accent);
+  font-size: 1.0625rem;
+  line-height: 1.5;
+  color: var(--ink-900);
 }
 
 .menu-divider {

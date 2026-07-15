@@ -1,5 +1,46 @@
 (function () {
+  var THALI_INCLUDES =
+    'Appetizer, rice, naan/roti, dal of the day, saag paneer, vegetable sabji, raita, pickle & pappad';
+
   var MENU = {
+    'Xpress Thali': [
+      {
+        name: 'Vegetarian Thali',
+        price: '$18',
+        description: '',
+        badges: [{ label: 'Veg', tone: 'veg' }],
+      },
+      {
+        name: 'Chicken Thali',
+        price: '$20',
+        description: '',
+        badges: [{ label: 'Non-veg', tone: 'nonveg' }],
+      },
+      {
+        name: 'Lamb Thali',
+        price: '$25',
+        description: '',
+        badges: [{ label: 'Non-veg', tone: 'nonveg' }],
+      },
+      {
+        name: 'Seafood Thali',
+        price: '$25',
+        description: 'Shrimp or fish',
+        badges: [{ label: 'Non-veg', tone: 'nonveg' }],
+      },
+      {
+        name: 'Highway Thali',
+        price: '+$3',
+        description: 'Saturday & Sunday only — upgrade any Xpress Thali',
+        badges: [{ label: 'Weekend', tone: 'gold' }],
+      },
+      {
+        name: 'Weekend Drink Special',
+        price: '$12',
+        description: 'Unlimited mimosas or draft beer · per person · Saturday & Sunday',
+        badges: [{ label: 'Weekend', tone: 'gold' }],
+      },
+    ],
     'Small Plates': [
       { name: 'Samosa', price: '$10', description: 'Crisp turnovers, potato & peas', badges: [{ label: 'Veg', tone: 'veg' }] },
       { name: 'Ónion Pakora', price: '$10', description: 'Chickpea flour, mint', badges: [{ label: 'Veg', tone: 'veg' }, { label: 'GF', tone: 'neutral' }] },
@@ -141,12 +182,47 @@
     );
   }
 
+  function renderXpressThaliIntro() {
+    return (
+      '<div class="menu-category-intro">' +
+        '<div class="menu-category-intro__meta">Mon–Fri · 12:00 PM – 4:00 PM · Dine-in only</div>' +
+        '<p class="menu-category-intro__choice">' +
+          '<span class="menu-category-intro__label">Choice of entrée</span>' +
+          '<span class="menu-category-intro__options">Curry · Korma · Tikka Masala · Tandoori</span>' +
+        '</p>' +
+        '<p class="menu-category-intro__includes">' +
+          '<span class="menu-category-intro__label">Every thali includes</span>' +
+          '<span class="menu-category-intro__options">' + THALI_INCLUDES + '</span>' +
+        '</p>' +
+      '</div>'
+    );
+  }
+
   function renderMenuRegion(region) {
     var items = MENU[region] || [];
-    return items.map(function (item, i) {
+    var body = items.map(function (item, i) {
       var divider = i > 0 ? '<div class="menu-divider"></div>' : '';
       return divider + renderMenuItem(item);
     }).join('');
+
+    if (region === 'Xpress Thali') {
+      return renderXpressThaliIntro() + body;
+    }
+    return body;
+  }
+
+  function regionSlug(region) {
+    return region.toLowerCase().replace(/\s+/g, '-');
+  }
+
+  function regionFromHash() {
+    var hash = (window.location.hash || '').replace(/^#/, '');
+    if (!hash) return null;
+    var regions = Object.keys(MENU);
+    for (var i = 0; i < regions.length; i++) {
+      if (regionSlug(regions[i]) === hash) return regions[i];
+    }
+    return null;
   }
 
   function initMenuPage() {
@@ -155,7 +231,20 @@
     if (!tabsEl || !listEl) return;
 
     var regions = Object.keys(MENU);
-    var active = regions[0];
+    var active = regionFromHash() || regions[0];
+
+    function setActive(region) {
+      active = region;
+      tabsEl.querySelectorAll('.menu-tab').forEach(function (t) {
+        t.classList.toggle('is-active', t.dataset.region === active);
+      });
+      listEl.innerHTML = renderMenuRegion(active);
+      if (history.replaceState) {
+        history.replaceState(null, '', '#' + regionSlug(active));
+      } else {
+        window.location.hash = regionSlug(active);
+      }
+    }
 
     regions.forEach(function (region) {
       var btn = document.createElement('button');
@@ -163,17 +252,49 @@
       btn.className = 'menu-tab' + (region === active ? ' is-active' : '');
       btn.textContent = region;
       btn.dataset.region = region;
+      btn.id = 'menu-tab-' + regionSlug(region);
       btn.addEventListener('click', function () {
-        active = region;
-        tabsEl.querySelectorAll('.menu-tab').forEach(function (t) {
-          t.classList.toggle('is-active', t.dataset.region === active);
-        });
-        listEl.innerHTML = renderMenuRegion(active);
+        setActive(region);
       });
       tabsEl.appendChild(btn);
     });
 
     listEl.innerHTML = renderMenuRegion(active);
+
+    window.addEventListener('hashchange', function () {
+      var fromHash = regionFromHash();
+      if (fromHash && fromHash !== active) setActive(fromHash);
+    });
+  }
+
+  function renderSignatureCards(items, labels) {
+    return items.map(function (d, i) {
+      return (
+        '<div class="signature-item">' +
+          '<div class="signature-label">' + labels[i] + '</div>' +
+          '<div class="signature-spacer"></div>' +
+          renderMenuItem(d) +
+        '</div>'
+      );
+    }).join('');
+  }
+
+  function initXpressThali() {
+    var gridEl = document.getElementById('xpress-thali-grid');
+    if (!gridEl) return;
+
+    // Shared inclusions live in the section lede — cards stay unique & short.
+    var extras = ['', '', '', 'Shrimp or fish'];
+    var thalis = MENU['Xpress Thali'].slice(0, 4).map(function (item, i) {
+      return {
+        name: item.name,
+        price: item.price,
+        description: extras[i] || '',
+        badges: item.badges,
+      };
+    });
+    var labels = ['Vegetarian', 'Chicken', 'Lamb', 'Seafood'];
+    gridEl.innerHTML = renderSignatureCards(thalis, labels);
   }
 
   function initSpecialties() {
@@ -186,20 +307,12 @@
       MENU['Small Plates'][3], // Paneer Tikka
     ];
     var labels = ['Chicken', 'Gilli Biryani', 'Small Plates'];
-
-    gridEl.innerHTML = picks.map(function (d, i) {
-      return (
-        '<div class="signature-item">' +
-          '<div class="signature-label">' + labels[i] + '</div>' +
-          '<div class="signature-spacer"></div>' +
-          renderMenuItem(d) +
-        '</div>'
-      );
-    }).join('');
+    gridEl.innerHTML = renderSignatureCards(picks, labels);
   }
 
   document.addEventListener('DOMContentLoaded', function () {
     initMenuPage();
+    initXpressThali();
     initSpecialties();
   });
 })();
