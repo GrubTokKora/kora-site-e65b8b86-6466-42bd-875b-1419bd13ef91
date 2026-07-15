@@ -88,6 +88,9 @@
       { name: 'Chicken Kali Mirch', price: '$23', description: 'Black pepper, garlic, herbs', badges: [{ label: 'Non-veg', tone: 'nonveg' }, { label: 'GF', tone: 'neutral' }, { label: 'Spicy', tone: 'chili' }] },
       { name: 'Chicken Korma', price: '$23', description: 'Cashew cream, saffron, house spices', badges: [{ label: 'Non-veg', tone: 'nonveg' }, { label: 'GF', tone: 'neutral' }] },
       { name: 'Highway Chicken Curry', price: '$23', description: 'Onion, tomato, ginger, garlic, home spices', badges: [{ label: 'Non-veg', tone: 'nonveg' }, { label: 'GF', tone: 'neutral' }, { label: 'Spicy', tone: 'chili' }] },
+      { name: 'Chicken Tikka Masala', price: '$23', description: 'Fenugreek infused creamy tomato sauce', badges: [{ label: 'Non-veg', tone: 'nonveg' }, { label: 'GF', tone: 'neutral' }] },
+      { name: 'Tandoori Murgh', price: '$24', description: 'Bone-in chicken, hung yogurt, house blend spices', badges: [{ label: 'Non-veg', tone: 'nonveg' }, { label: 'GF', tone: 'neutral' }] },
+      { name: 'Amul Butter Chicken', price: '$23', description: 'Tomato, cream, pepper, onion', badges: [{ label: 'Non-veg', tone: 'nonveg' }, { label: 'GF', tone: 'neutral' }] },
     ],
     'Seafood': [
       { name: 'Pollicha Meen', price: '$28', description: 'Slow braised salmon, onion cream', badges: [{ label: 'Non-veg', tone: 'nonveg' }, { label: 'GF', tone: 'neutral' }, { label: 'Spicy', tone: 'chili' }] },
