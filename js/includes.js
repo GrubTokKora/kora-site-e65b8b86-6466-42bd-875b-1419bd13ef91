@@ -84,7 +84,7 @@ const FOOTER_HTML = `
     <div>
       <div class="footer-head">Reach us</div>
       <div class="footer-line"><a href="tel:9145745262">(914) 574-5262</a></div>
-      <div class="footer-line"><a href="mailto:info@nh44indian.com">info@nh44indian.com</a></div>
+      <div class="footer-line"><a href="mailto:nh44indian@gmail.com">nh44indian@gmail.com</a></div>
     </div>
     <div>
       <div class="footer-head">Hungry?</div>
