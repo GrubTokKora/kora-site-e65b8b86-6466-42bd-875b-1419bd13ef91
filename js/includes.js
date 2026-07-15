@@ -17,7 +17,7 @@ const HEADER_HTML = `
     <a href="contact.html" data-nav="contact" class="site-header__link">Contact</a>
     <a href="hiring.html" data-nav="hiring" class="site-header__link">Hiring</a>
     <a href="https://www.toasttab.com/nh44-indian-219-e-hartsdale-ave/marketing-signup" class="site-header__link" target="_blank" rel="noopener noreferrer">Subscribe</a>
-    <a href="https://order.toasttab.com/egiftcards/nh44-indian-219-e-hartsdale-ave" class="site-header__link" target="_blank" rel="noopener noreferrer">Gift Card</a>
+    <a href="https://www.toasttab.com/nh44-indian-219-e-hartsdale-ave/giftcards" class="site-header__link" target="_blank" rel="noopener noreferrer">Gift Card</a>
     <a href="https://www.toasttab.com/nh44-indian-219-e-hartsdale-ave" class="btn btn-ink btn-sm btn-stamp btn-ink--gold" target="_blank" rel="noopener noreferrer">Order</a>
     <a href="https://tables.toasttab.com/restaurants/f5ced673-e0ba-485f-9d40-00e45aa7f9d9/findTime" class="btn btn-primary btn-sm btn-stamp" target="_blank" rel="noopener noreferrer">Reservation</a>
   </nav>
@@ -43,7 +43,7 @@ const HEADER_HTML = `
       <a href="contact.html" data-nav="contact" class="mobile-menu__link">Contact</a>
       <a href="hiring.html" data-nav="hiring" class="mobile-menu__link">Hiring</a>
       <a href="https://www.toasttab.com/nh44-indian-219-e-hartsdale-ave/marketing-signup" class="mobile-menu__link" target="_blank" rel="noopener noreferrer">Subscribe</a>
-      <a href="https://order.toasttab.com/egiftcards/nh44-indian-219-e-hartsdale-ave" class="mobile-menu__link" target="_blank" rel="noopener noreferrer">Gift Card</a>
+      <a href="https://www.toasttab.com/nh44-indian-219-e-hartsdale-ave/giftcards" class="mobile-menu__link" target="_blank" rel="noopener noreferrer">Gift Card</a>
       <a href="https://www.toasttab.com/nh44-indian-219-e-hartsdale-ave" class="btn btn-ink btn-sm btn-stamp btn-ink--gold" target="_blank" rel="noopener noreferrer">Order</a>
       <a href="https://tables.toasttab.com/restaurants/f5ced673-e0ba-485f-9d40-00e45aa7f9d9/findTime" class="btn btn-primary btn-sm btn-stamp" target="_blank" rel="noopener noreferrer">Reservation</a>
     </nav>
