@@ -98,7 +98,81 @@ function applyIconPaths(root) {
   document.addEventListener('DOMContentLoaded', function () {
     bindStampButtons(document);
     applyIconPaths();
+    initHeroVideo();
   });
 
   window.NH44_bindStampButtons = bindStampButtons;
 })();
+
+function initHeroVideo() {
+  var heroMedia = document.querySelector('.hero__media');
+  var heroVideo = document.querySelector('.hero__video');
+  if (!heroMedia || !heroVideo) return;
+
+  var source = heroVideo.querySelector('source[data-src]');
+  if (!source) return;
+
+  heroVideo.muted = true;
+  heroVideo.defaultMuted = true;
+  heroVideo.setAttribute('muted', '');
+  heroVideo.setAttribute('playsinline', '');
+  heroVideo.setAttribute('webkit-playsinline', '');
+
+  var started = false;
+
+  function startVideo() {
+    if (started) return;
+    started = true;
+    var playPromise = heroVideo.play();
+    if (playPromise && typeof playPromise.then === 'function') {
+      playPromise
+        .then(function () {
+          heroMedia.classList.add('is-video-playing');
+        })
+        .catch(function () {
+          started = false;
+        });
+    } else {
+      heroMedia.classList.add('is-video-playing');
+    }
+  }
+
+  function loadAndPlay() {
+    if (!source.getAttribute('src')) {
+      source.setAttribute('src', source.getAttribute('data-src'));
+      heroVideo.load();
+    }
+    heroVideo.addEventListener('canplaythrough', startVideo, { once: true });
+    heroVideo.addEventListener(
+      'loadeddata',
+      function () {
+        if (heroVideo.readyState >= 3) startVideo();
+      },
+      { once: true }
+    );
+    setTimeout(function () {
+      if (!started && heroVideo.readyState >= 2) startVideo();
+    }, 5000);
+  }
+
+  var schedule =
+    window.requestIdleCallback ||
+    function (cb) {
+      return setTimeout(cb, 1200);
+    };
+  schedule(loadAndPlay, { timeout: 2500 });
+
+  document.addEventListener('visibilitychange', function () {
+    if (!document.hidden && heroMedia.classList.contains('is-video-playing')) {
+      heroVideo.play().catch(function () {});
+    }
+  });
+
+  heroVideo.addEventListener(
+    'error',
+    function () {
+      started = true;
+    },
+    { once: true }
+  );
+}

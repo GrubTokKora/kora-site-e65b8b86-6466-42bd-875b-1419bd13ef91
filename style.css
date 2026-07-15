@@ -672,6 +672,12 @@ a {
   color: var(--cream-50);
 }
 
+.hero__media {
+  position: absolute;
+  inset: 0;
+}
+
+.hero__poster,
 .hero__video {
   position: absolute;
   inset: 0;
@@ -680,6 +686,27 @@ a {
   max-width: none;
   object-fit: cover;
   pointer-events: none;
+}
+
+.hero__poster {
+  z-index: 0;
+  transition: opacity 0.8s ease;
+}
+
+.hero__video {
+  z-index: 1;
+  opacity: 0;
+  transition: opacity 0.8s ease;
+  -webkit-transform: translateZ(0);
+  transform: translateZ(0);
+}
+
+.hero__media.is-video-playing .hero__poster {
+  opacity: 0;
+}
+
+.hero__media.is-video-playing .hero__video {
+  opacity: 1;
 }
 
 .hero__inner {
@@ -1429,6 +1456,25 @@ a {
   font-size: clamp(1rem, 1.5vw, 1.125rem);
   color: var(--text-body);
   line-height: 1.55;
+}
+
+.social-text-link {
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: .80em;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--chili-500);
+  text-decoration: none;
+  border-bottom: 2px solid var(--turmeric-500);
+  padding-bottom: 1px;
+  transition: color var(--dur-fast) var(--ease-out), border-color var(--dur-fast) var(--ease-out), background-color var(--dur-fast) var(--ease-out);
+}
+
+.social-text-link:hover,
+.social-text-link:focus-visible {
+  color: var(--ink-900);
+  border-bottom-color: var(--chili-500);
 }
 
 .order-online-card__btn {
