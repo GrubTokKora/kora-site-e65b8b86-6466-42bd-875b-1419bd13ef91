@@ -31,7 +31,7 @@
       {
         name: 'Highway Thali',
         price: '+$3',
-        description: 'Saturday & Sunday only — upgrade any Xpress Thali',
+        description: 'Saturday & Sunday only — upgrade any Xpress Thali · 12:00 PM – 4:00 PM · Dine-in only',
         badges: [{ label: 'Weekend', tone: 'gold' }],
       },
       {
