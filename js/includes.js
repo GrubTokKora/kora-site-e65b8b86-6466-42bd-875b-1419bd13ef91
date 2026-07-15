@@ -78,9 +78,8 @@ const FOOTER_HTML = `
       <div class="footer-head">Visit</div>
       <div class="footer-line">219 E. Hartsdale Ave</div>
       <div class="footer-line">Hartsdale, NY 10530</div>
-      <div class="footer-line">Monday–Thursday: 11:30am – 9:30pm</div>
-      <div class="footer-line">Friday–Saturday: 11:30am – 10pm</div>
-      <div class="footer-line">Sunday: 11:30am – 9pm</div>
+      <div class="footer-line">Sunday–Thursday: 12:00pm – 9:30pm</div>
+      <div class="footer-line">Friday–Saturday: 12:00pm – 10pm</div>
     </div>
     <div>
       <div class="footer-head">Reach us</div>
