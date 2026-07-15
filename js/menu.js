@@ -225,24 +225,64 @@
     return null;
   }
 
+  function getHeaderHeight() {
+    var header = document.getElementById('site-header');
+    return header ? header.offsetHeight : 72;
+  }
+
+  function syncMenuStickyTop() {
+    document.documentElement.style.setProperty(
+      '--menu-sticky-top',
+      getHeaderHeight() + 'px'
+    );
+  }
+
+  function scrollToMenuView() {
+    var container = document.getElementById('menu-sticky-container');
+    if (!container) return;
+
+    var top =
+      container.getBoundingClientRect().top + window.scrollY - getHeaderHeight();
+    window.scrollTo({ top: Math.max(0, top), behavior: 'smooth' });
+  }
+
   function initMenuPage() {
     var tabsEl = document.getElementById('menu-tabs');
     var listEl = document.getElementById('menu-list');
     if (!tabsEl || !listEl) return;
 
+    syncMenuStickyTop();
+    window.addEventListener('resize', syncMenuStickyTop);
+    document.addEventListener('site:partials-loaded', syncMenuStickyTop);
+
     var regions = Object.keys(MENU);
     var active = regionFromHash() || regions[0];
 
-    function setActive(region) {
+    function setActive(region, withScroll) {
       active = region;
       tabsEl.querySelectorAll('.menu-tab').forEach(function (t) {
-        t.classList.toggle('is-active', t.dataset.region === active);
+        var isActive = t.dataset.region === active;
+        t.classList.toggle('is-active', isActive);
+        if (isActive && withScroll) {
+          t.scrollIntoView({
+            behavior: 'smooth',
+            block: 'nearest',
+            inline: 'center',
+          });
+        }
       });
       listEl.innerHTML = renderMenuRegion(active);
       if (history.replaceState) {
         history.replaceState(null, '', '#' + regionSlug(active));
       } else {
         window.location.hash = regionSlug(active);
+      }
+
+      if (withScroll) {
+        // Wait for list layout after re-render so scroll lands on bar + items
+        requestAnimationFrame(function () {
+          requestAnimationFrame(scrollToMenuView);
+        });
       }
     }
 
@@ -254,7 +294,7 @@
       btn.dataset.region = region;
       btn.id = 'menu-tab-' + regionSlug(region);
       btn.addEventListener('click', function () {
-        setActive(region);
+        setActive(region, true);
       });
       tabsEl.appendChild(btn);
     });
@@ -263,7 +303,7 @@
 
     window.addEventListener('hashchange', function () {
       var fromHash = regionFromHash();
-      if (fromHash && fromHash !== active) setActive(fromHash);
+      if (fromHash && fromHash !== active) setActive(fromHash, true);
     });
   }
 
