@@ -146,7 +146,7 @@
       { name: 'Soda', price: '$3', description: 'Coke/ Diet/Sprite/ Ginger Ale' },
       { name: 'Saratoga Water', price: '$6', description: 'Still/ Sparkling' },
       { name: 'Coconut Lychee', price: '$7', description: 'coconut, lychee, lime, agave' },
-      { name: 'Lassi', price: '$5', description: 'mango, plain sweet' },
+      { name: 'Lassi', price: '$7', description: 'mango, plain sweet' },
       { name: 'Fresh Lime Soda', price: '$7', description: '' },
       { name: 'Cucumber Cooler', price: '$7', description: 'cucumber, mint' },
       { name: 'Mango Lassi', price: '$7', description: 'Creamy blended mango, yogurt' },
