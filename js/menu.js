@@ -197,7 +197,7 @@
         '<div class="menu-category-intro__meta">Everyday · 12:00 PM – 4:00 PM · Dine-in only</div>' +
         '<p class="menu-category-intro__choice">' +
           '<span class="menu-category-intro__label">Choice of entrée</span>' +
-          '<span class="menu-category-intro__options">Curry · Korma · Tikka Masala · Tandoori</span>' +
+          '<span class="menu-category-intro__options">Curry · Korma · Tikka Masala · Tandoori · Biryani · Vindaloo</span>' +
         '</p>' +
         '<p class="menu-category-intro__includes">' +
           '<span class="menu-category-intro__label">Every thali includes</span>' +
