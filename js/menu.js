@@ -28,18 +28,7 @@
         description: 'Shrimp or fish',
         badges: [{ label: 'Non-veg', tone: 'nonveg' }],
       },
-      {
-        name: 'Highway Thali',
-        price: '+$3',
-        description: 'Saturday & Sunday only — upgrade any Xpress Thali · 12:00 PM – 4:00 PM · Dine-in only',
-        badges: [{ label: 'Weekend', tone: 'gold' }],
-      },
-      {
-        name: 'Weekend Drink Special',
-        price: '$12',
-        description: 'Unlimited mimosas or draft beer · per person · Saturday & Sunday',
-        badges: [{ label: 'Weekend', tone: 'gold' }],
-      },
+
     ],
     'Small Plates': [
       { name: 'Samosa (2)', price: '$10', description: 'Crisp turnovers, potato & peas', badges: [{ label: 'Veg', tone: 'veg' }] },
