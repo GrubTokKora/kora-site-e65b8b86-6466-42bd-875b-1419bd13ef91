@@ -207,6 +207,10 @@
     );
   }
 
+  var SECTION_NOTES = {
+    'Gilli Biryani': 'Aromatic aged basmati rice, whole spices, ghee, caramelized onion, raita, mint, cashew & raisin',
+  };
+
   function renderMenuRegion(region) {
     var items = MENU[region] || [];
     var body = items.map(function (item, i) {
@@ -214,10 +218,14 @@
       return divider + renderMenuItem(item);
     }).join('');
 
+    var sectionNote = SECTION_NOTES[region]
+      ? '<div class="menu-category-intro" style="margin-bottom:20px"><div class="menu-category-intro__meta">' + SECTION_NOTES[region] + '</div></div>'
+      : '';
+
     if (region === 'Xpress Thali') {
       return renderXpressThaliIntro() + body;
     }
-    return body;
+    return sectionNote + body;
   }
 
   function regionSlug(region) {
@@ -309,6 +317,36 @@
     });
 
     listEl.innerHTML = renderMenuRegion(active);
+
+    // Render legend once below the list
+    var legendEl = document.getElementById('menu-legend');
+    if (!legendEl) {
+      legendEl = document.createElement('div');
+      legendEl.id = 'menu-legend';
+      legendEl.style.cssText = 'margin-top:28px;padding:18px 22px;background:var(--cream-100);border:1.5px solid var(--border-soft);border-radius:var(--radius-sm);display:flex;flex-wrap:wrap;gap:12px 24px;align-items:center;';
+      legendEl.innerHTML =
+        '<span style="font-family:var(--font-display);font-size:0.7rem;letter-spacing:0.18em;text-transform:uppercase;color:var(--text-muted);font-weight:600;">Legend:</span>' +
+        '<span class="badge badge-sm badge-neutral">GF</span><span style="font-size:0.8125rem;color:var(--text-muted);">Gluten Free</span>' +
+        '<span class="badge badge-sm badge-chili">Spicy</span><span style="font-size:0.8125rem;color:var(--text-muted);">Spicy</span>' +
+        '<span class="badge badge-sm badge-veg badge-dot">Veg</span><span style="font-size:0.8125rem;color:var(--text-muted);">Vegetarian / Vegan</span>' +
+        '<span class="badge badge-sm badge-nonveg badge-dot">Non-veg</span><span style="font-size:0.8125rem;color:var(--text-muted);">Non-Vegetarian</span>';
+      listEl.parentNode.insertBefore(legendEl, listEl.nextSibling);
+    }
+
+    // Render policy notes once
+    var notesEl = document.getElementById('menu-policy-notes');
+    if (!notesEl) {
+      notesEl = document.createElement('ul');
+      notesEl.id = 'menu-policy-notes';
+      notesEl.style.cssText = 'margin-top:14px;padding:14px 22px;background:var(--cream-50);border:1.5px solid var(--border-soft);border-radius:var(--radius-sm);list-style:none;display:flex;flex-direction:column;gap:6px;';
+      MENU_NOTES.forEach(function (note) {
+        var li = document.createElement('li');
+        li.style.cssText = 'font-family:var(--font-body);font-size:0.8125rem;color:var(--text-muted);';
+        li.textContent = note;
+        notesEl.appendChild(li);
+      });
+      legendEl.parentNode.insertBefore(notesEl, legendEl.nextSibling);
+    }
 
     window.addEventListener('hashchange', function () {
       var fromHash = regionFromHash();
