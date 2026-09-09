@@ -3,7 +3,7 @@ Structure and the names of what each page offers. Values that change often — p
 address — and body copy are deliberately not recorded here; read the page itself for those.
 
 ## index.html → /
-title: NH 44 Indian | Authentic Indian Cuisine, Biryani & Curry | Hartsdale, Westchester NY
+title: NH 44 Indian | Best Indian Westchester NY | Indian Restaurant Hartsdale
 purpose: The landing page — the restaurant's positioning, the Xpress Thali lunch special, a signatures strip, guest reviews and the FAQ.
 sections:
 - hero "One Highway. A Thousand Flavours." — the tagline with the Reserve a table and Order online actions
