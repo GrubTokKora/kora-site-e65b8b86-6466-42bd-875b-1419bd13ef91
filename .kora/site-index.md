@@ -1,4 +1,4 @@
-# Site index · format 1
+# Site index · format 2
 Structure and the names of what each page offers. Values that change often — prices, hours, phone,
 address — and body copy are deliberately not recorded here; read the page itself for those.
 
@@ -14,7 +14,7 @@ sections:
 - `#specialties-grid` — the grid the signature dishes are drawn into. It is empty in the markup.
 - `#reviews` "What our guests say" — three named guest reviews: Priya M., James L., Anita K.
 - `#faq` "Frequently asked questions" — an accordion covering the Xpress Thali, reservations and ordering
-also: Both `#xpress-thali-grid` and `#specialties-grid` are empty in the markup and filled by script at page load. No thali option and no signature dish is named inside either grid, so a request to change one cannot be satisfied by editing this page.
+also: Both `#xpress-thali-grid` and `#specialties-grid` are empty markup, filled at load from `js/menu.js`. No thali option and no signature dish is named in this file, so a request to change one is an edit to that script.
 also: The Xpress Thali's contents and its choice of preparations are written out twice on this page, once in the `#xpress-thali` section and once inside the FAQ answer. Changing one leaves the other stating the old offer.
 
 ## about.html → /about
@@ -46,7 +46,7 @@ also: The page has a heading and a single sentence and nothing else. Whatever im
 
 ## menu.html → /menu
 title: The Menu — NH 44 Indian | Hartsdale, NY
-purpose: The menu page — currently a shell that links out to a PDF, with no dishes on it.
+purpose: The menu page — an empty shell in the markup; every dish is drawn in from `js/menu.js` at load.
 sections:
 - "The Menu" — the page hero, the tax note and the allergy note
 - `#menu-sticky-container` — the sticky wrapper the category bar and tabs sit in
@@ -54,25 +54,41 @@ sections:
 - `#menu-tabs` — the category tabs. They are empty in the markup.
 - `#menu-list` — the dish list. It is empty in the markup.
 - "Official dining menu" — links to the dining menu PDF and to catering
-also: THIS PAGE HAS NO DISHES ON IT. The category bar, the tabs and the dish list are all empty in the markup and filled by script at page load, and the only menu a visitor can actually read is the PDF this page links to. A request to change a dish, a price or a category has nothing here to edit.
+also: THE DISHES ARE NOT IN THIS FILE. The category bar, the tabs and the dish list are all empty markup, filled at load from `js/menu.js` — which is where every dish, price and category actually lives. A request to change one is an edit to that file, not to this page. Editing this page's markup would appear to do nothing.
 
 ## hiring.html → /hiring
 title: Hiring - NH 44 Indian | Hartsdale, NY
-purpose: The careers page — currently a heading and an empty container.
+purpose: The careers page — a heading and an empty container; the application form is drawn in from `js/hiring.js` at load.
 sections:
 - "Hiring" — the page hero
 - `#hiring-content` — the container the job listings belong in. It is empty.
-also: THIS PAGE IS EMPTY. It carries the words "Join the team" and "Hiring" and nothing else. No role, no description, no way to apply.
+also: THE FORM IS NOT IN THIS FILE. The page holds "Join the team", "Hiring" and an empty container; `js/hiring.js` renders the application form into it and carries the list of roles. No role is described anywhere — the select lists every role the restaurant has, whether or not it is hiring.
 
 ## reserve.html → /reserve
 title: Catering — NH 44 Indian | Hartsdale, NY
-purpose: The catering page — currently a heading and an empty container.
+purpose: The catering page — a heading and an empty container; the enquiry form is drawn in from `js/catering.js` at load.
 sections:
 - "Catering" — the page hero
 - `#catering-content` — the container the catering offer belongs in. It is empty.
-also: THIS PAGE IS EMPTY. It carries the words "Feed the highway" and "Catering" and nothing else, yet index.html, menu.html and a guest review all point visitors here for catering.
+also: THE FORM IS NOT IN THIS FILE. The page holds "Feed the highway", "Catering" and an empty container; `js/catering.js` renders the enquiry form into it and carries the event types. No catering offer is described anywhere on the site — no packages, no dishes, no minimums — yet index.html, menu.html and a guest review all send visitors here for it.
 also: The file is named reserve.html but the page is about catering, and the navigation's Reserve a table action goes elsewhere. A request about the reservation page and a request about the catering page both land on this file.
 
+## support files
+Files that are not pages. A line marked [content] holds words or data a visitor reads, so a
+change to the site's content can land there; the rest only make the site work or look right.
+- `llms.txt` — a plain-text summary of the business for AI crawlers — derived from the site by the deploy, not written by hand
+- `robots.txt` — crawler rules and the sitemap link — derived from the site by the deploy, not written by hand
+- `sitemap.xml` — the list of page URLs — derived from the site by the deploy, not written by hand
+- `style.css` — the site's styling, brand colours and web fonts
+- `js/catering.js` — THE CATERING PAGE'S CONTENT and its enquiry form: Corporate, Birthday, Graduation, Weddings, Party  [content]
+- `js/forms.js` — form submission and the captcha
+- `js/hiring.js` — THE HIRING PAGE'S CONTENT and its application form: Server, Host, Bartender, Kitchen staff, Dishwasher, Manager  [content]
+- `js/includes.js` — the header, navigation and footer markup for every page  [content]
+- `js/main.js` — page behaviour and the site's API configuration
+- `js/menu.js` — THE ENTIRE MENU as data, drawn onto the menu page at load: Xpress Thali, Vegetarian Thali  [content]
+
 ## shared (every page)
-The header, navigation, mobile menu and footer are propagated from index.html to every other page by
-`shell_propagation`. A change to any of them is made on index.html alone and copied automatically.
+The header, navigation, mobile menu and footer are NOT in the pages. They are rendered at
+load by `js/includes.js`, which is where every change to the shared chrome has to be made. Editing a
+page's markup to change the header will appear to do nothing, because there is no header in
+it to change.
