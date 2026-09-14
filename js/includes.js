@@ -1,7 +1,7 @@
 const HEADER_HTML = `
 <header class="site-header">
   <a href="index.html" class="site-header__brand">
-    <img src="https://quseprdus1.blob.core.windows.net/kora-business-images/user-media/e65b8b86-6466-42bd-875b-1419bd13ef91/de8c94d8-887e-4625-825f-ec262dbc28df/1781674727_1dv5nr.png" alt="NH 44 Indian" class="site-header__logo" width="44" height="44" loading="eager" fetchpriority="high" decoding="async">
+    <img src="https://quseprdus1.blob.core.windows.net/kora-business-images/v2-uploads/e65b8b86-6466-42bd-875b-1419bd13ef91/5fa625a7-33c6-45e9-8641-a6f53f8c0867-01_1781674727_1dv5nr.webp" alt="NH 44 Indian" class="site-header__logo" width="44" height="44" loading="eager" fetchpriority="high" decoding="async">
     <span class="site-header__title">
       <span class="site-header__name">NH 44</span>
       <span class="site-header__tagline">Indian · Hartsdale, NY</span>
@@ -56,7 +56,7 @@ const FOOTER_HTML = `
   <div class="site-footer__grid">
     <div>
       <div class="site-footer__brand">
-        <img src="https://quseprdus1.blob.core.windows.net/kora-business-images/user-media/e65b8b86-6466-42bd-875b-1419bd13ef91/de8c94d8-887e-4625-825f-ec262dbc28df/1781674727_1dv5nr.png" alt="NH 44 Indian" class="site-footer__logo" width="52" height="52" loading="lazy" decoding="async">
+        <img src="https://quseprdus1.blob.core.windows.net/kora-business-images/v2-uploads/e65b8b86-6466-42bd-875b-1419bd13ef91/5fa625a7-33c6-45e9-8641-a6f53f8c0867-01_1781674727_1dv5nr.webp" alt="NH 44 Indian" class="site-footer__logo" width="52" height="52" loading="lazy" decoding="async">
         <span class="site-footer__name">NH 44</span>
       </div>
       <p class="site-footer__about">
