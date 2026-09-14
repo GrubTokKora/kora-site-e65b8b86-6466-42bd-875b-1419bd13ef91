@@ -431,7 +431,7 @@ a {
   text-align: center;
 }
 
-.eyebrow--turmeric { color: var(--turmeric-400); }
+.eyebrow--turmeric { color: #8a5a12; }
 .eyebrow--chili { color: var(--chili-500); }
 
 /* ── Badges ── */
