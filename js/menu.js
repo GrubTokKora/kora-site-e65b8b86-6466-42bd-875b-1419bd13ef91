@@ -2,150 +2,64 @@
   var THALI_INCLUDES =
     'Appetizer, rice, naan/roti, dal of the day, saag paneer, vegetable sabji, raita, pickle & pappad, dessert';
 
-  var MENU = {
-    'Xpress Thali': [
-      {
-        name: 'Vegetarian Thali',
-        price: '$18',
-        description: '',
-        badges: [{ label: 'Veg', tone: 'veg' }],
-      },
-      {
-        name: 'Chicken Thali',
-        price: '$20',
-        description: '',
-        badges: [{ label: 'Non-veg', tone: 'nonveg' }],
-      },
-      {
-        name: 'Lamb Thali',
-        price: '$25',
-        description: '',
-        badges: [{ label: 'Non-veg', tone: 'nonveg' }],
-      },
-      {
-        name: 'Seafood Thali',
-        price: '$25',
-        description: 'Shrimp or fish',
-        badges: [{ label: 'Non-veg', tone: 'nonveg' }],
-      },
-
-    ],
-    'Small Plates': [
-      { name: 'Samosa (2)', price: '$10', description: 'Crisp turnovers, potato & peas', badges: [{ label: 'Veg', tone: 'veg' }] },
-      { name: 'Onion Pakora', price: '$10', description: 'Chickpea flour, mint', badges: [{ label: 'Veg', tone: 'veg' }] },
-      { name: 'Kungfu Gobi', price: '$13', description: 'Tossed cauliflower, tangy garlic sauce', badges: [{ label: 'Veg', tone: 'veg' }, { label: 'Spicy', tone: 'chili' }] },
-      { name: 'Paneer Tikka', price: '$15', description: 'Tandoor fired cottage cheese, house marinade', badges: [{ label: 'Veg', tone: 'veg' }, { label: 'GF', tone: 'neutral' }] },
-      { name: 'Corn Ribs', price: '$9', description: 'Grilled, lime, salt', badges: [{ label: 'Veg', tone: 'veg' }] },
-      { name: 'Sweet Potato Chat', price: '$9', description: 'Grilled, Pico de gallo, chutneys', badges: [{ label: 'Veg', tone: 'veg' }] },
-      { name: 'Murgh Malai Tikka', price: '$15', description: 'Tandoor fired fennel rubbed cream chicken', badges: [{ label: 'Non-veg', tone: 'nonveg' }, { label: 'GF', tone: 'neutral' }] },
-      { name: 'Jinga Malai Marke', price: '$16', description: 'Tandoori cooked jumbo shrimp', badges: [{ label: 'Non-veg', tone: 'nonveg' }, { label: 'GF', tone: 'neutral' }] },
-      { name: 'Naga Chili Pork', price: '$14', description: 'Onion, pepper, bamboo shoot', badges: [{ label: 'Non-veg', tone: 'nonveg' }, { label: 'Spicy', tone: 'chili' }] },
-      { name: 'Salmon Croquets', price: '$16', description: 'House blend spices, ginger', badges: [{ label: 'Non-veg', tone: 'nonveg' }] },
-      { name: 'Lamb Tikka', price: '$18', description: 'Tandoor fired lamb, clarified butter', badges: [{ label: 'Non-veg', tone: 'nonveg' }, { label: 'GF', tone: 'neutral' }] },
-    ],
-    'Vegan': [
-      { name: 'Aloo Gobi', price: '$19', description: 'Spiced potato, cauliflower, aromatic spices', badges: [{ label: 'Vegan', tone: 'veg' }, { label: 'GF', tone: 'neutral' }] },
-      { name: 'Tadka Dal', price: '$17', description: 'Yellow lentils, tempered cumin & spices. Spinach +$2', badges: [{ label: 'Vegan', tone: 'veg' }, { label: 'GF', tone: 'neutral' }] },
-      { name: 'Vegetable Madras', price: '$19', description: 'Coconut curry, mustard, chili, curry leaves', badges: [{ label: 'Vegan', tone: 'veg' }, { label: 'GF', tone: 'neutral' }] },
-      { name: 'Aloo Baingan', price: '$19', description: 'Potato, eggplant, onion, cilantro', badges: [{ label: 'Vegan', tone: 'veg' }, { label: 'GF', tone: 'neutral' }] },
-      { name: 'Bhindi Kadai', price: '$19', description: 'Okra, onion, tomato, house spice', badges: [{ label: 'Vegan', tone: 'veg' }, { label: 'GF', tone: 'neutral' }] },
-      { name: 'Channa Masala', price: '$17', description: 'Chickpea, onion, tomato, aromatic spices', badges: [{ label: 'Vegan', tone: 'veg' }, { label: 'GF', tone: 'neutral' }] },
-    ],
-    'Vegetable': [
-      { name: 'Saag Peshkesh', price: '$16', description: 'Pureed fresh spinach, cream, garlic. Add: Paneer +$4 · Vegetable +$3 · Potato +$2', badges: [{ label: 'Veg', tone: 'veg' }] },
-      { name: 'Paneer Tawa Masala', price: '$20', description: 'Pan fried cottage cheese, onion, pepper, cumin', badges: [{ label: 'Veg', tone: 'veg' }, { label: 'GF', tone: 'neutral' }] },
-      { name: 'Dal Makhani', price: '$18', description: 'Simmered black lentils in cream, tempered sun-dried chili', badges: [{ label: 'Veg', tone: 'veg' }, { label: 'GF', tone: 'neutral' }] },
-      { name: 'Vegetable Korma', price: '$20', description: 'Market vegetable, cashe cream, aromatic spices', badges: [{ label: 'Veg', tone: 'veg' }, { label: 'GF', tone: 'neutral' }] },
-      { name: 'Vegetable Pulav', price: '$20', description: 'Aged basmati rice, market vegetable, cashew, raisin, raita', badges: [{ label: 'Veg', tone: 'veg' }, { label: 'GF', tone: 'neutral' }] },
-    ],
-    'Lamb': [
-      { name: 'Lamb Chettinad', price: '$29', description: 'Black pepper corn, house spices', badges: [{ label: 'Non-veg', tone: 'nonveg' }, { label: 'GF', tone: 'neutral' }, { label: 'Spicy', tone: 'chili' }] },
-      { name: 'Lamb Saag', price: '$29', description: 'Creamy spinach, ginger', badges: [{ label: 'Non-veg', tone: 'nonveg' }, { label: 'GF', tone: 'neutral' }] },
-      { name: 'Rogan Josh', price: '$29', description: 'Highway Lamb curry', badges: [{ label: 'Non-veg', tone: 'nonveg' }, { label: 'GF', tone: 'neutral' }] },
-      { name: 'Lamb Jalfrezi', price: '$29', description: 'Onion, peppers, fennel', badges: [{ label: 'Non-veg', tone: 'nonveg' }, { label: 'GF', tone: 'neutral' }] },
-      { name: 'Lamb Korma', price: '$29', description: 'Cashew cream, rose extract, saffron', badges: [{ label: 'Non-veg', tone: 'nonveg' }, { label: 'GF', tone: 'neutral' }] },
-      { name: 'Lamb Vindaloo', price: '$29', description: 'Sun-dried chili, vinegar, potato', badges: [{ label: 'Non-veg', tone: 'nonveg' }, { label: 'GF', tone: 'neutral' }, { label: 'Spicy', tone: 'chili' }] },
-      { name: 'Lamb Boti Kebab', price: '$30', description: 'Tandoor fired lamb, masala sauce', badges: [{ label: 'Non-veg', tone: 'nonveg' }, { label: 'GF', tone: 'neutral' }] },
-    ],
-    'Pork': [
-      { name: 'Pork Vindaloo', price: '$22', description: 'Sun dried chili, vinegar, potato', badges: [{ label: 'Non-veg', tone: 'nonveg' }, { label: 'GF', tone: 'neutral' }, { label: 'Spicy', tone: 'chili' }] },
-      { name: 'Pork Jalfrezi', price: '$22', description: 'Onion, pepper, fennel', badges: [{ label: 'Non-veg', tone: 'nonveg' }, { label: 'GF', tone: 'neutral' }] },
-      { name: 'Pork Pepper Fry', price: '$22', description: 'Whole black pepper, onion, curry leave', badges: [{ label: 'Non-veg', tone: 'nonveg' }, { label: 'GF', tone: 'neutral' }, { label: 'Spicy', tone: 'chili' }] },
-      { name: 'Pork Curry', price: '$22', description: 'Onion, tomato, ginger, garlic, home spices', badges: [{ label: 'Non-veg', tone: 'nonveg' }, { label: 'GF', tone: 'neutral' }] },
-    ],
-    'Chicken': [
-      { name: 'Tandoori Murgh', price: '$24', description: 'Bone-in chicken, hung yogurt, house blend spices', badges: [{ label: 'Non-veg', tone: 'nonveg' }, { label: 'GF', tone: 'neutral' }, { label: 'Organic', tone: 'gold' }] },
-      { name: 'Amul Butter Chicken', price: '$23', description: 'Tomato, cream, pepper, onion', badges: [{ label: 'Non-veg', tone: 'nonveg' }, { label: 'Organic', tone: 'gold' }] },
-      { name: 'Chicken Tikka Masala', price: '$23', description: 'Fenugreek infused creamy tomato sauce', badges: [{ label: 'Non-veg', tone: 'nonveg' }, { label: 'GF', tone: 'neutral' }] },
-      { name: 'Kundapur Chicken', price: '$23', description: 'Coconut curry, mustard seeds, curry leaves', badges: [{ label: 'Non-veg', tone: 'nonveg' }, { label: 'GF', tone: 'neutral' }] },
-      { name: 'Chicken Saag', price: '$23', description: 'Creamy spinach, ginger', badges: [{ label: 'Non-veg', tone: 'nonveg' }, { label: 'GF', tone: 'neutral' }] },
-      { name: 'Chicken Kali Mirch', price: '$23', description: 'Black pepper, garlic, herbs', badges: [{ label: 'Non-veg', tone: 'nonveg' }, { label: 'GF', tone: 'neutral' }, { label: 'Spicy', tone: 'chili' }] },
-      { name: 'Chicken Korma', price: '$23', description: 'Cashew cream, saffron, house spices', badges: [{ label: 'Non-veg', tone: 'nonveg' }, { label: 'GF', tone: 'neutral' }] },
-      { name: 'Highway Chicken Curry', price: '$23', description: 'Onion, tomato, ginger, garlic, home spices', badges: [{ label: 'Non-veg', tone: 'nonveg' }, { label: 'GF', tone: 'neutral' }, { label: 'Spicy', tone: 'chili' }] },
-    ],
-    'Seafood': [
-      { name: 'Pollicha Meen', price: '$28', description: 'Slow braised salmon, onion house blend spices', badges: [{ label: 'Non-veg', tone: 'nonveg' }, { label: 'GF', tone: 'neutral' }] },
-      { name: 'Shrimp Tikka Masala', price: '$28', description: 'Tandoori shrimp, Fenugreek infused creamy tomato', badges: [{ label: 'Non-veg', tone: 'nonveg' }, { label: 'GF', tone: 'neutral' }] },
-      { name: 'Chingri Malai Curry', price: '$28', description: 'Jumbo Shrimp, coconut curry', badges: [{ label: 'Non-veg', tone: 'nonveg' }, { label: 'GF', tone: 'neutral' }] },
-      { name: 'Salmon Curry', price: '$28', description: 'Ginger infused coconut', badges: [{ label: 'Non-veg', tone: 'nonveg' }, { label: 'GF', tone: 'neutral' }] },
-    ],
-    'Gilli Biryani': [
-      { name: 'Chicken', price: '$22', description: 'Aromatic aged basmati rice, whole spices, ghee, caramelized onion, raita, mint, cashew & raisin', badges: [{ label: 'Non-veg', tone: 'nonveg' }, { label: 'GF', tone: 'neutral' }] },
-      { name: 'Lamb', price: '$24', description: 'Aromatic aged basmati rice, whole spices, ghee, caramelized onion, raita, mint, cashew & raisin', badges: [{ label: 'Non-veg', tone: 'nonveg' }, { label: 'GF', tone: 'neutral' }] },
-      { name: 'Shrimp', price: '$26', description: 'Aromatic aged basmati rice, whole spices, ghee, caramelized onion, raita, mint, cashew & raisin', badges: [{ label: 'Non-veg', tone: 'nonveg' }, { label: 'GF', tone: 'neutral' }] },
-    ],
-    'Breads': [
-      { name: 'Naan', price: '$5', description: '', badges: [{ label: 'Veg', tone: 'veg' }] },
-      { name: 'Bharvan Naan', price: '$6', description: 'Cheese | Garlic | Onion | Chili', badges: [{ label: 'Veg', tone: 'veg' }] },
-      { name: 'Whole Wheat Roti', price: '$5', description: '', badges: [{ label: 'Veg', tone: 'veg' }] },
-      { name: 'Lacha Paratha', price: '$5', description: '', badges: [{ label: 'Veg', tone: 'veg' }] },
-    ],
-    'Sides': [
-      { name: 'Raita', price: '$5', description: 'Yogurt dip', badges: [{ label: 'Veg', tone: 'veg' }, { label: 'GF', tone: 'neutral' }] },
-      { name: 'Mango Chutney', price: '$4', description: 'Sweet and tangy', badges: [{ label: 'Veg', tone: 'veg' }, { label: 'GF', tone: 'neutral' }] },
-      { name: 'Coconut Rice', price: '$12', description: 'Fragrant basmati rice', badges: [{ label: 'Veg', tone: 'veg' }, { label: 'GF', tone: 'neutral' }] },
-    ],
-    'Cocktail': [
-      { name: 'Red Sangria', price: '$13', description: 'Red wine, fresh fruits' },
-      { name: 'Ginger Martini', price: '$13', description: 'Ginger, cranberry, wine vodka' },
-      { name: 'White Sangria', price: '$13', description: 'White wine, fresh fruits' },
-      { name: 'Lychee Martini', price: '$13', description: 'Wine vodka, cranberry, coconut' },
-      { name: 'Passion Margarita', price: '$13', description: 'Agave wine tequila, passion fruit, agave, orange, jalapeno, tajin' },
-      { name: 'Silk Route', price: '$13', description: 'Pinot noir, rum, agaves, cloves' },
-    ],
-    'Beer — Tap': [
-      { name: '1947', price: '$10', description: 'Lager, 4.7% India' },
-      { name: 'Founder Porter Ale', price: '$10', description: 'American porter 6.5% USA' },
-      { name: 'Dog Fish 60 IPA', price: '$10', description: 'Double IPA, 6%' },
-      { name: 'UFO Wheat', price: '$10', description: 'Belgian Witbier 4.8%' },
-    ],
-    'Beer — Bottle': [
-      { name: 'Kingfisher', price: '$8', description: 'European Pale Lager, 4.8% India' },
-      { name: 'Taj Mahal', price: '$8', description: 'Lager, 4.5%, India' },
-      { name: 'Estrella', price: '$8', description: 'Lager 5.5% Spain' },
-      { name: 'Heineken OO', price: '$8', description: '0%, Netherlands' },
-      { name: 'Maduro Brown Ale', price: '$8', description: '5.5% USA English Brown Ale' },
-    ],
-    'White Wine': [
-      { name: 'Bottega Vinaia | Pinot Grigio', price: '$13 / $44', description: 'Italy' },
-      { name: 'Yealands | Sauvignon Blanc', price: '$12 / $40', description: 'New Zealand' },
-      { name: '3 Fingers | Chardonnay', price: '$13 / $44', description: 'CA' },
-      { name: 'La Luca | Prosecco', price: '$12', description: 'Italy' },
-    ],
-    'Red Wine': [
-      { name: 'Portillo | Cabernet Sauvignon', price: '$12 / $40', description: 'Argentina' },
-      { name: 'Tinto Negro | Malbec', price: '$12 / $40', description: 'Argentina' },
-      { name: 'Alexander Brown | Pinot Noir', price: '$13 / $44', description: 'CA' },
-    ],
-    'Mocktail': [
-      { name: 'Soda', price: '$3', description: 'Coke / Diet / Sprite / Ginger Ale' },
-      { name: 'Lassi', price: '$7', description: 'Mango, plain sweet' },
-      { name: 'Saratoga Water', price: '$6', description: 'Still / Sparkling' },
-      { name: 'Fresh Lime Soda', price: '$5', description: '' },
-      { name: 'Coconut Lychee', price: '$7', description: 'Coconut, lychee, lime, agave' },
-      { name: 'Cucumber Cooler', price: '$7', description: 'Cucumber, mint' },
-    ],
+  // The menu is drawn into menu.html by Kora (kora:data:menu), so it is real HTML for search engines.
+  // The tabs, badges and home-page cards below are built from it; the home page reads menu.html.
+  var MENU = {};
+  var SECTION_NOTES = {};
+  var BADGE_FROM_TAG = {
+    vegetarian: { label: 'Veg', tone: 'veg' },
+    vegan: { label: 'Vegan', tone: 'veg' },
+    spicy: { label: 'Spicy', tone: 'chili' },
+    gluten_free: { label: 'GF', tone: 'neutral' },
   };
+  var BADGE_FROM_NOTE = {
+    'Non-veg': { label: 'Non-veg', tone: 'nonveg' },
+    Organic: { label: 'Organic', tone: 'gold' },
+  };
+
+  function readRenderedMenu(doc) {
+    var root = doc.querySelector('.kora-menu');
+    if (!root) return false;
+    var text = function (el, selector) {
+      var node = el.querySelector(selector);
+      return node ? node.textContent.trim() : '';
+    };
+    MENU = {};
+    SECTION_NOTES = {};
+    root.querySelectorAll('.kora-menu__section').forEach(function (section) {
+      var region = text(section, '.kora-menu__section-title');
+      var note = text(section, '.kora-menu__section-desc');
+      if (note) SECTION_NOTES[region] = note;
+      MENU[region] = Array.prototype.map.call(section.querySelectorAll('.kora-menu__item'), function (li) {
+        var badges = [];
+        li.querySelectorAll('.kora-menu__tag').forEach(function (tag) {
+          var key = (tag.className.match(/kora-menu__tag--([a-z_]+)/) || [])[1];
+          if (BADGE_FROM_TAG[key]) badges.push(BADGE_FROM_TAG[key]);
+        });
+        text(li, '.kora-menu__item-note').split(' · ').forEach(function (label) {
+          if (BADGE_FROM_NOTE[label]) badges.push(BADGE_FROM_NOTE[label]);
+        });
+        return {
+          name: text(li, '.kora-menu__item-name'),
+          price: text(li, '.kora-menu__item-price') || text(li, '.kora-menu__prices'),
+          description: text(li, '.kora-menu__item-desc'),
+          badges: badges,
+        };
+      });
+    });
+    return true;
+  }
+
+  // On menu.html the menu is in the page; on the home page it is read from menu.html.
+  function withMenu(run) {
+    if (readRenderedMenu(document)) return run();
+    fetch('menu.html')
+      .then(function (res) { return res.text(); })
+      .then(function (html) {
+        if (readRenderedMenu(new DOMParser().parseFromString(html, 'text/html'))) run();
+      })
+      .catch(function () {});
+  }
 
   function badgeClass(tone) {
     var map = {
@@ -196,9 +110,6 @@
     );
   }
 
-  var SECTION_NOTES = {
-    'Gilli Biryani': 'Aromatic aged basmati rice, whole spices, ghee, caramelized onion, raita, mint, cashew & raisin',
-  };
 
   function renderMenuRegion(region) {
     var items = MENU[region] || [];
@@ -361,7 +272,7 @@
 
     // Shared inclusions live in the section lede — cards stay unique & short.
     var extras = ['', '', '', 'Shrimp or fish'];
-    var thalis = MENU['Xpress Thali'].slice(0, 4).map(function (item, i) {
+    var thalis = (MENU['Xpress Thali'] || []).slice(0, 4).map(function (item, i) {
       return {
         name: item.name,
         price: item.price,
@@ -378,17 +289,20 @@
     if (!gridEl) return;
 
     var picks = [
-      MENU.Chicken[4], // Highway Chicken Curry
-      MENU['Gilli Biryani'][0], // Chicken
-      MENU['Small Plates'][3], // Paneer Tikka
+      (MENU.Chicken || [])[4], // Highway Chicken Curry
+      (MENU['Gilli Biryani'] || [])[0], // Chicken
+      (MENU['Small Plates'] || [])[3], // Paneer Tikka
     ];
     var labels = ['Chicken', 'Gilli Biryani', 'Small Plates'];
-    gridEl.innerHTML = renderSignatureCards(picks, labels);
+    var shown = picks.map(function (p, i) { return p ? { item: p, label: labels[i] } : null; }).filter(Boolean);
+    gridEl.innerHTML = renderSignatureCards(shown.map(function (s) { return s.item; }), shown.map(function (s) { return s.label; }));
   }
 
   document.addEventListener('DOMContentLoaded', function () {
-    initMenuPage();
-    initXpressThali();
-    initSpecialties();
+    withMenu(function () {
+      initMenuPage();
+      initXpressThali();
+      initSpecialties();
+    });
   });
 })();
