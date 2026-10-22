@@ -8,8 +8,9 @@
   --color-primary: #E6B31E;
   --color-secondary: #141210;
   --color-accent: #C5352A;
-  --font-heading: Oswald, serif;
-  --font-body: "Zilla Slab", sans-serif;
+  --font-heading: var(--kora-font-heading, Oswald), serif;
+  --font-body: var(--kora-font-accent, "Zilla Slab"), sans-serif;
+  --font-accent: var(--kora-font-accent, "Zilla Slab");
 }
 /* KORA_BRAND_THEME_END */
 
